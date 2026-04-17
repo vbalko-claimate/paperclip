@@ -49,7 +49,7 @@ WORKDIR /app
 COPY --chown=node:node --from=build /app /app
 RUN npm install --global --omit=dev @anthropic-ai/claude-code@latest @openai/codex@latest opencode-ai \
   && apt-get update \
-  && apt-get install -y --no-install-recommends openssh-client jq \
+  && apt-get install -y --no-install-recommends openssh-client jq python3 python3-openpyxl python3-pandas \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /paperclip \
   && chown node:node /paperclip
